@@ -4,5 +4,5 @@ body{position:relative}.sky{position:absolute;z-index:0;min-height:100%;pointer-
 /* Keep the ten-day list compact without stretching the four detail cards. */
 .days{max-height:363px;overflow-y:auto;scrollbar-width:thin;scrollbar-color:#ffffff55 transparent;padding-right:5px}.metrics{align-content:start}.metric{min-height:211px}.daily{align-self:start}.wind-content{flex:0;margin-top:12px}.day{min-height:56px;padding:10px 0}@media(max-width:1150px) and (min-width:851px){.metric{min-height:180px}}@media(max-width:560px){.metric{min-height:180px}.days{max-height:340px}}
 .sidebar{min-width:0}@media(max-width:850px){.layout{grid-template-columns:minmax(0,1fr)}#locations{min-width:0}.days:focus-visible{outline:2px solid #ffe4a6;outline-offset:3px}}
-/* On phones, center the temperature independently and float its icon to the left. */
-@media(max-width:560px){.hero-temperature{position:relative}.hero-temperature #hero-icon{position:absolute;left:calc(50% - 108px);top:50%;transform:translate(-50%,-50%)}.hero-temperature .weather-icon{margin:0}}
+/* Center the temperature reading on the city name and float its icon beside it. */
+.hero-temperature{position:relative;--hero-icon-offset:130px}.hero-temperature #hero-icon{position:absolute;left:calc(50% - var(--hero-icon-offset));top:50%;transform:translate(-50%,-50%)}.hero-temperature .weather-icon{margin:0}@media(min-width:1450px){.hero-temperature{--hero-icon-offset:145px}}@media(max-width:850px){.hero-temperature{--hero-icon-offset:115px}}@media(max-width:560px){.hero-temperature{--hero-icon-offset:108px}}

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="pt-PT">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#387aaa"><meta name="description" content="Previsões meteorológicas para Portugal com dados do IPMA."><meta name="referrer" content="no-referrer"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src https://api.ipma.pt; font-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'none'; form-action 'none'"><title>Previsão IPMA</title><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E☀️%3C/text%3E%3C/svg%3E"><link rel="stylesheet" href="./public/style.css"><script src="./public/vendor/liquidGL.js" defer></script><script src="./public/app.js" defer></script></head>
+<body>
+<div class="sky-frame" aria-hidden="true"><div class="sky"><div class="sun-glow"></div><div class="cloud cloud-one"></div><div class="cloud cloud-two"></div><div class="horizon"></div></div></div>
+<div class="app-shell">
+<header class="topbar"><a class="brand" href="./" aria-label="Início"><span class="brand-sun" aria-hidden="true">☼</span></a><div class="top-actions"><span class="source-pill"><i></i> Dados IPMA</span><button id="refresh" class="icon-button" aria-label="Atualizar previsão" title="Atualizar previsão">↻</button></div></header>
+<div class="layout">
+<aside class="sidebar glass">
+<div class="sidebar-heading"><h2>Localidades</h2><span>Portugal</span></div>
+<label class="search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4.5 4.5"/></svg><input id="search" type="search" placeholder="Procurar localidade" aria-label="Procurar localidade" autocomplete="off"></label>
+<div id="search-results" class="search-results" aria-label="Resultados da pesquisa" hidden></div>
+<div class="locations-label">LOCALIDADES <span>♡</span></div><nav id="locations" aria-label="Localidades favoritas"></nav>
+<button id="locate" class="locate-button"><span>⌖</span> Usar a minha localização</button><p id="location-message" class="small-note" role="status"></p>
+</aside>
+<main id="main" aria-busy="true">
+<div class="main-top"><span id="date-label"></span><span class="forecast-badge">PREVISÃO LOCAL</span></div>
+<section class="hero" aria-labelledby="city"><div class="place-eyebrow">PORTUGAL <span>•</span> <span id="local-clock">HORA LOCAL</span></div><h1 id="city">Lisboa</h1><div class="hero-temperature"><span id="hero-icon" aria-hidden="true"></span><span id="temperature">—</span><span class="degree">°</span></div><p id="condition">A carregar previsão…</p><p id="high-low">Previsões meteorológicas do IPMA</p><span id="forecast-time" class="hero-time"></span></section>
+<div id="status" class="status glass" role="status" hidden></div>
+<section class="hourly glass"><div class="card-heading"><h2><span>◷</span> PRÓXIMAS HORAS</h2><span id="hourly-caption">Hora local</span></div><p id="hourly-summary" class="hourly-summary">A carregar a previsão horária.</p><div id="hours" class="hours" role="region" tabindex="0" aria-label="Previsão por hora, deslize para ver mais"></div></section>
+<div class="details-grid">
+<section class="daily glass"><div class="card-heading"><h2><span>▦</span> PREVISÃO DIÁRIA</h2><span id="day-count"></span></div><div id="days" class="days" role="region" tabindex="0" aria-label="Previsão de dez dias, deslize para ver mais"></div><p class="card-footnote">Mínimas e máximas em °C</p></section>
+<div class="metrics">
+<section class="metric glass"><h2><span>☂</span> PRECIPITAÇÃO</h2><div class="metric-value" id="rain-value">—</div><div class="rain-decoration" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><p id="rain-note">Probabilidade de chuva</p></section>
+<section class="metric glass wind-card"><h2><span>≋</span> VENTO</h2><div class="wind-content"><div><div class="metric-value" id="wind-value">—</div><span id="wind-direction">Previsão local</span></div><div class="compass" aria-hidden="true"><span class="north">N</span><span class="east">E</span><span class="south">S</span><span class="west">O</span><div id="wind-arrow">↑</div></div></div><p>Velocidade média a 10 m</p></section>
+<section class="metric glass"><h2><span>♧</span> SENSAÇÃO TÉRMICA</h2><div class="metric-value" id="feels-value">—</div><div class="thermal-line" aria-hidden="true"><span></span></div><p id="feels-note">Como se poderá sentir</p></section>
+<section class="metric glass"><h2><span>♧</span> HUMIDADE</h2><div class="metric-value" id="humidity-value">—</div><div class="humidity-decoration" aria-hidden="true"><svg viewBox="0 0 170 30"><path d="M0 15 Q10 0 20 15T40 15T60 15T80 15T100 15T120 15T140 15T160 15T180 15"/><path d="M0 25 Q10 10 20 25T40 25T60 25T80 25T100 25T120 25T140 25T160 25T180 25"/></svg></div><p>Humidade relativa prevista</p></section>
+</div></div>
+<footer><p>Fonte: <a href="https://www.ipma.pt/pt/otempo/prev.localidade.hora/" target="_blank" rel="noopener noreferrer">IPMA ↗</a><span class="footer-dot">·</span><span id="updated">A obter dados</span></p><p class="disclaimer">Projeto independente. Previsões automáticas, não observações em tempo real. <a href="https://www.ipma.pt/pt/otempo/prev-sam/" target="_blank" rel="noopener noreferrer">Consultar avisos oficiais ↗</a></p></footer>
+</main></div></div>
+</body></html>

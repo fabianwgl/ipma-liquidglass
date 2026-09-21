@@ -31,7 +31,14 @@ jobs:
           set -euo pipefail
           node --check public/app.js
           node --check public/vendor/liquidGL.js
+          test -f .nojekyll
+          test -f index.html
           test -f public/.nojekyll
+          sed -e 's|href="./style.css"|href="./public/style.css"|' \
+              -e 's|src="./vendor/liquidGL.js"|src="./public/vendor/liquidGL.js"|' \
+              -e 's|src="./app.js"|src="./public/app.js"|' \
+              public/index.html > /tmp/root-index.expected
+          cmp -s /tmp/root-index.expected index.html
           test -z "$(find public -type l -print -quit)"
           test -z "$(find public -mindepth 1 ! -type d ! -type f -print -quit)"
           expected="$(printf '%s\n' .nojekyll app.js index.html style.css vendor/LICENSE.txt vendor/liquidGL.js)"
